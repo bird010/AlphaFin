@@ -54,7 +54,7 @@ def ChatGLMPrompt(instruction, inputs):
     return f"[Round 1]\n\n问：{instruction}\n{inputs}\n\n答："
 
 def prompt_eval(args, model, tokenizer, data):
-    fw = open(args.output_path, 'a+')
+    fw = open(args.output_path, 'a+', encoding='utf-8')
 
     for prompt in data:
 
@@ -96,7 +96,7 @@ def main():
 
     model.to(device)
     
-    with open(args.data_path, 'r') as f:
+    with open(args.data_path, 'r', encoding='utf-8') as f:
         prompts = json.load(f)
     
     print(f'Loading dataset')
